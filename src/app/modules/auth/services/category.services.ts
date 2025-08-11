@@ -13,7 +13,7 @@ export class CategoryService {
 
   getCategories(): Observable<Category[]> {
     // La API devuelve un array de strings, lo mapeamos a nuestro modelo Category
-    return this.http.get<any[]>(this.apiUrl);
+    return this.http.get<Category[]>(this.apiUrl);
   }
 
   // DummyJSON también nos da los nombres de las categorías en una ruta aparte
