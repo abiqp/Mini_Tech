@@ -1,0 +1,56 @@
+<ng-container *ngIf="cartService.cart$ | async as cart">
+  <div *ngIf="cart.items.length === 0; else cartView" class="text-center py-5">
+    <h1 class="h5 mb-3">Tu carrito está vacío</h1>
+    <a routerLink="/productos" class="btn btn-primary">Ir al catálogo</a>
+  </div>
+
+  <ng-template #cartView>
+    <div class="row g-4">
+      <div class="col-12 col-lg-8">
+        <ul class="list-group shadow-sm">
+          <li *ngFor="let item of cart.items" class="list-group-item d-flex flex-column flex-sm-row align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3 mb-2 mb-sm-0">
+              <img [src]="item.thumbnailSnapshot" [alt]="item.nameSnapshot" width="64" height="64" class="rounded border object-fit-cover">
+              <div>
+                <div class="fw-semibold">{{ item.nameSnapshot }}</div>
+                <div class="text-muted small">{{ item.priceSnapshot | currency }} c/u</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <input 
+                type="number" class="form-control" style="width: 80px;"
+                min="1" [value]="item.qty"
+                (change)="setQty(item.productId, $event)">
+              <button class="btn btn-outline-danger btn-sm" (click)="removeFromCart(item.productId)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+        <div class="mt-3">
+          <button class="btn btn-outline-secondary" (click)="clearCart()">Vaciar carrito</button>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="card p-3 shadow-sm">
+          <h2 class="h6">Resumen</h2>
+          <div class="d-flex justify-content-between">
+            <span>Subtotal</span>
+            <strong>{{ cartService.getSubtotal() | currency }}</strong>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Impuestos (IVA)</span>
+            <strong>{{ cartService.getTaxes() | currency }}</strong>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold h5">
+            <span>Total</span>
+            <span>{{ cartService.getTotal() | currency }}</span>
+          </div>
+          <a routerLink="/checkout" class="btn btn-primary w-100 mt-3">Ir a pagar</a>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

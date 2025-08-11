@@ -1,0 +1,16 @@
+<div *ngIf="user$ | async as user" class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card p-4 shadow-sm">
+      <h1 class="h4 mb-3">Perfil de Usuario</h1>
+      <div class="mb-2">
+        <strong>Nombre:</strong> {{ user.name }}
+      </div>
+      <div class="mb-2">
+        <strong>Correo:</strong> {{ user.email }}
+      </div>
+      <div>
+        <strong>Rol:</strong> <span class="badge bg-primary">{{ user.role }}</span>
+      </div>
+    </div>
+  </div>
+</div>

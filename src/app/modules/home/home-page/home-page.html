@@ -1,0 +1,23 @@
+<section class="text-center py-5">
+  <div class="p-4 p-md-5 rounded-3 bg-body-secondary border">
+    <h1 class="display-4 fw-bold">Bienvenido a Mini Tech</h1>
+    <p class="lead text-muted col-lg-8 mx-auto">
+      Un catálogo de portafolio moderno construido con Angular y consumiendo la API de DummyJSON.
+    </p>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h2 class="h5 mb-0">Destacados</h2>
+    <a routerLink="/productos" class="btn btn-link">Ver todos</a>
+  </div>
+
+  <div *ngIf="loading" class="text-center">Cargando productos...</div>
+
+  <div *ngIf="!loading" class="row g-3">
+    <div *ngFor="let p of featuredProducts" class="col-12 col-sm-6 col-lg-3">
+      <app-product-card [product]="p"></app-product-card>
+    </div>
+  </div>
+</section>

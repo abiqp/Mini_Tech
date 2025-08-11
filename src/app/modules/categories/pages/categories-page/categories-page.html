@@ -1,0 +1,13 @@
+<h1 class="h4 mb-3">Categorías de Productos</h1>
+
+<div *ngIf="loading" class="text-center py-5">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+
+<div *ngIf="!loading" class="row g-3">
+  <div *ngFor="let cat of categories" class="col-6 col-md-4 col-lg-3">
+    <a [routerLink]="['/categoria', cat]" class="btn btn-light w-100 text-capitalize text-start p-3 border shadow-sm h-100">
+      {{ cat.replace('-', ' ') }}
+    </a>
+  </div>
+</div>

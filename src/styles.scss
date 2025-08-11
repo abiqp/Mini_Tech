@@ -1,0 +1,87 @@
+/* Importa la fuente de Bootstrap para los íconos */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* 1. Paleta de colores para el tema claro (por defecto) */
+:root {
+  --bs-primary: #B08463;
+  --bs-primary-rgb: 176, 132, 99;
+  --bs-secondary: #B9937B;
+  --bs-secondary-rgb: 185, 147, 123;
+  --bs-body-bg: #f0edeb;
+  --bs-body-color: #714329;
+  --bs-border-color: #D0B9A7;
+  --bs-light-rgb: 240, 235, 230;
+
+  // Personalización de botones y enlaces
+  .btn-primary {
+    --bs-btn-bg: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: #714329;
+    --bs-btn-hover-border-color: #714329;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+  }
+
+  .btn-outline-primary {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: var(--bs-primary);
+  --bs-btn-hover-border-color: var(--bs-primary);
+  --bs-btn-hover-color: #fff;
+  }
+
+  .btn-outline-secondary {
+      --bs-btn-color: var(--bs-secondary);
+      --bs-btn-border-color: var(--bs-secondary);
+      --bs-btn-hover-bg: var(--bs-secondary);
+      --bs-btn-hover-color: #fff;
+  }
+  
+  a {
+    color:black;
+  }
+  .btn-link {
+    color: var(--bs-primary-rgb);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  a:hover, .btn-link:hover {
+    color: #867e79;
+  }
+}
+
+/* 2. Paleta de colores para el tema oscuro */
+html.dark {
+  color-scheme: dark;
+
+  --bs-primary: #D0B9A7;
+  --bs-primary-rgb: 208, 185, 167;
+  --bs-secondary: #B5A192;
+  --bs-secondary-rgb: 181, 161, 146;
+  --bs-body-bg: #292524;
+  --bs-body-color: #E7E0D9;
+  --bs-border-color: #714329;
+  --bs-tertiary-bg: #2b2827; // Para cards y otros fondos
+
+  // Botones y enlaces en modo oscuro
+  .btn-primary {
+    --bs-btn-color: #292524;
+    --bs-btn-hover-color: #292524;
+    --bs-btn-hover-bg: #E7E0D9;
+    --bs-btn-hover-border-color: #E7E0D9;
+  }
+  
+  a, .btn-link {
+    color: var(--bs-primary);
+  }
+  
+  a:hover, .btn-link:hover {
+    color: var(--bs-secondary);
+  }
+}
+
+/* 3. Estilos generales */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
