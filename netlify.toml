@@ -1,7 +1,7 @@
-
 [build]
   command = "ng build"
-  publish = "dist/mini-tech-angular" # El adaptador maneja la subcarpeta /browser internamente
+  # CORRECCIÓN: Apuntamos directamente a la carpeta /browser como pidió Netlify
+  publish = "dist/mini-tech-angular/browser"
 
 [[redirects]]
   from = "/*"
