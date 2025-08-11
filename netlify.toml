@@ -1,0 +1,9 @@
+
+[build]
+  command = "ng build"
+  publish = "dist/mini-tech-angular" # El adaptador maneja la subcarpeta /browser internamente
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
