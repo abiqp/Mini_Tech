@@ -148,3 +148,16 @@ html.dark {
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* Aplica el footer */
+footer {
+  background-color: #ffffff; 
+}
+
+.container.text-muted {
+  color: #c69c6c !important; 
+}
+
+/* También para los íconos, en caso de que estén en una clase separada */
+.social-icons a {
+  color: #c69c6c !important; 
+}
