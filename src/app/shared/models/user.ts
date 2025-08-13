@@ -11,12 +11,12 @@ export interface User {
 // Datos de demostración para el login
 export const DEMO_USER: User = {
   id: "u-demo-1",
-  name: "Usuario Demo",
-  email: "demo@shop.com",
+  name: "Usuario AD",
+  email: "ad@shop.com",
   role: "user",
 };
 
 export const DEMO_CREDENTIALS = {
-  email: "demo@shop.com",
+  email: "ad@shop.com",
   password: "Demo123!",
 };

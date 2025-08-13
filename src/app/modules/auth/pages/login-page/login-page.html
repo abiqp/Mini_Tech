@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
   <div class="col-12 col-md-6 col-lg-5">
-    <h1 class="h4 mb-3">Ingresar (Demo)</h1>
-
-    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-
     <div class="card p-4 shadow-sm">
+      <h1 class="h4 mb-3 text-center">Login</h1>
+      
+      <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
       <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="email" class="form-label">Correo Electrónico</label>
@@ -29,9 +29,6 @@
         <button type="submit" class="btn btn-primary w-100" [disabled]="loading">
           {{ loading ? 'Ingresando...' : 'Ingresar' }}
         </button>
-        <p class="text-muted small mt-3 mb-0">
-          <strong>Demo:</strong> {{ DEMO_CREDENTIALS.email }} / {{ DEMO_CREDENTIALS.password }}
-        </p>
       </form>
     </div>
   </div>

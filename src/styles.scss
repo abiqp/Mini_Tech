@@ -1,83 +1,146 @@
 /* Importa la fuente de Bootstrap para los íconos */
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import '@fortawesome/fontawesome-free/css/all.min.css';
 
 /* 1. Paleta de colores para el tema claro (por defecto) */
 :root {
-  --bs-primary: #B08463;
-  --bs-primary-rgb: 176, 132, 99;
-  --bs-secondary: #B9937B;
-  --bs-secondary-rgb: 185, 147, 123;
-  --bs-body-bg: #f0edeb;
-  --bs-body-color: #714329;
-  --bs-border-color: #D0B9A7;
-  --bs-light-rgb: 240, 235, 230;
+  --bs-primary: #D0B9A7;
+  --bs-primary-rgb: 198, 178, 154;
+  --bs-secondary: #d8c7b6;
+  --bs-secondary-rgb: 216, 199, 182;
+  --bs-body-bg: #f3e5d8;
+  --bs-body-color: #7a6a57; 
+  --bs-border-color: #e4d5c9;
+  --bs-light-rgb: 243, 229, 216;
 
-  // Personalización de botones y enlaces
+  /* Personalización de botones y enlaces */
   .btn-primary {
     --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: var(--bs-primary);
-    --bs-btn-hover-bg: #714329;
-    --bs-btn-hover-border-color: #714329;
+    --bs-btn-hover-bg: #9b8c7e; 
+    --bs-btn-hover-border-color: #9b8c7e;
     --bs-btn-color: #fff;
     --bs-btn-hover-color: #fff;
   }
 
   .btn-outline-primary {
-  --bs-btn-color: var(--bs-primary);
-  --bs-btn-border-color: var(--bs-primary);
-  --bs-btn-hover-bg: var(--bs-primary);
-  --bs-btn-hover-border-color: var(--bs-primary);
-  --bs-btn-hover-color: #fff;
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-primary);
+    --bs-btn-hover-bg: var(--bs-primary);
+    --bs-btn-hover-border-color: var(--bs-primary);
+    --bs-btn-hover-color: #fff;
   }
 
   .btn-outline-secondary {
-      --bs-btn-color: var(--bs-secondary);
-      --bs-btn-border-color: var(--bs-secondary);
-      --bs-btn-hover-bg: var(--bs-secondary);
-      --bs-btn-hover-color: #fff;
+    --bs-btn-color: var(--bs-secondary);
+    --bs-btn-border-color: var(--bs-secondary);
+    --bs-btn-hover-bg: var(--bs-secondary);
+    --bs-btn-hover-color: #fff;
   }
   
-  a {
-    color:black;
-  }
   .btn-link {
-    color: var(--bs-primary-rgb);
+    color: var(--bs-primary);
     text-decoration: none;
     font-weight: 500;
   }
 
   a:hover, .btn-link:hover {
-    color: #867e79;
+    color: #9b8c7e; 
+  }
+
+  .highlight-box {
+    background-color: #c6b29a; 
+    color: #333; 
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .card {
+    background-color: #f3e5d8; 
+    color: var(--bs-body-color);
+    border: 1px solid #e4d5c9;
+  }
+
+  .card-header {
+    background-color: #d8c7b6; 
+    color: var(--bs-body-color);
   }
 }
 
 /* 2. Paleta de colores para el tema oscuro */
+
 html.dark {
   color-scheme: dark;
 
-  --bs-primary: #D0B9A7;
-  --bs-primary-rgb: 208, 185, 167;
-  --bs-secondary: #B5A192;
-  --bs-secondary-rgb: 181, 161, 146;
-  --bs-body-bg: #292524;
-  --bs-body-color: #E7E0D9;
-  --bs-border-color: #714329;
-  --bs-tertiary-bg: #2b2827; // Para cards y otros fondos
+  /* Paleta de colores */
+  --bs-primary: #c69c6c; /* Twine */
+  --bs-primary-rgb: 198, 156, 108;
+  --bs-secondary: #a27c53; /* Limed Oak */
+  --bs-secondary-rgb: 162, 124, 83;
+  --bs-body-bg: #4d2919; /* Brown Derby - Fondo general más oscuro */
+  --bs-body-color: #c69c6c; /* Twine - Color de texto principal */
+  --bs-border-color: #6d3d26; /* Pickled Bean */
+  --bs-tertiary-bg: #6d3d26; /* Pickled Bean - Fondo terciario */
 
-  // Botones y enlaces en modo oscuro
+  /* Botones primarios */
   .btn-primary {
-    --bs-btn-color: #292524;
-    --bs-btn-hover-color: #292524;
-    --bs-btn-hover-bg: #E7E0D9;
-    --bs-btn-hover-border-color: #E7E0D9;
+    --bs-btn-color: #4d2919; /* Brown Derby - Color de texto del botón */
+    --bs-btn-bg: #c69c6c; /* Twine - Fondo del botón */
+    --bs-btn-border-color: #c69c6c; /* Twine - Borde del botón */
+    --bs-btn-hover-color: #4d2919; /* Brown Derby - Color de texto al pasar el ratón */
+    --bs-btn-hover-bg: #a27c53; /* Limed Oak - Fondo al pasar el ratón */
+    --bs-btn-hover-border-color: #a27c53; /* Limed Oak - Borde al pasar el ratón */
   }
-  
+
+  /* Enlaces */
   a, .btn-link {
-    color: var(--bs-primary);
+    color: var(--bs-primary); /* Usa Twine */
   }
-  
+
   a:hover, .btn-link:hover {
-    color: var(--bs-secondary);
+    color: var(--bs-secondary); /* Usa Limed Oak */
+  }
+
+  /* Tarjetas */
+  .card {
+    background-color: #8f5a3d; /* Potters Clay - Fondo de la tarjeta */
+    color: #c69c6c;             /* Twine - Color de texto de la tarjeta */
+    border: 1px solid #6d3d26; /* Pickled Bean - Borde de la tarjeta */
+  }
+
+  .card-header {
+    background-color: #6d3d26; /* Pickled Bean - Fondo del encabezado de la tarjeta */
+    color: #c69c6c;             /* Twine - Color de texto del encabezado de la tarjeta */
+  }
+
+  /* Recuadro destacado (como el de bienvenida) */
+  .highlight-box {
+    background-color: #a27c53; /* Limed Oak - Fondo del recuadro */
+    color: #4d2919;             /* Brown Derby - Letras oscuras para contraste */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .highlight-box h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #4b3720; /* Twine */
+  }
+
+  .highlight-box p {
+    font-size: 1.2rem;
+    color: #4b3720; /* Twine */
   }
 }
 

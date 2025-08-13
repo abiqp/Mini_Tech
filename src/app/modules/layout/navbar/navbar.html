@@ -14,8 +14,7 @@
       <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
         <li class="nav-item">
           <a class="nav-link position-relative" routerLink="/user/carrito">
-            Carrito
-            <span *ngIf="itemsCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+            <i class="fas fa-shopping-cart"></i> <span *ngIf="itemsCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               {{ itemsCount }}
             </span>
           </a>
@@ -37,7 +36,14 @@
 
         <li class="nav-item">
           <button (click)="toggleTheme()" class="btn btn-outline-secondary btn-sm">
-            {{ themeService.getTheme() === 'light' ? 'Modo Oscuro' : 'Modo Claro' }}
+            <!-- Solo el ícono de luna para el modo oscuro -->
+            <ng-container *ngIf="themeService.getTheme() === 'light'">
+              <i class="fas fa-moon"></i>
+            </ng-container>
+            <!-- Solo el ícono de sol para el modo claro -->
+            <ng-container *ngIf="themeService.getTheme() !== 'light'">
+              <i class="fas fa-sun"></i>
+            </ng-container>
           </button>
         </li>
       </ul>
