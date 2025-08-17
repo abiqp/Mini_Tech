@@ -1,5 +1,6 @@
-<form (ngSubmit)="applyFilters()" class="mb-4 p-3 border rounded bg-body-tertiary shadow-sm">
-  <div class="row g-3 align-items-end">
+
+<form (ngSubmit)="applyFilters()" class="mb-4 p-3 rounded">
+  <div class="filter-bar row g-3 align-items-end ">
     <div class="col-lg-6">
       <label for="q" class="form-label">Buscar</label>
       <input id="q" type="text" name="q" class="form-control" placeholder="Ej: iPhone, laptop..." [(ngModel)]="filters.q">

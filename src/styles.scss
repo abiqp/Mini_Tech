@@ -1,163 +1,241 @@
-/* Importa la fuente de Bootstrap para los íconos */
+/* Importa las fuentes de íconos */
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
-/* 1. Paleta de colores para el tema claro (por defecto) */
+/* ==========================================================================
+   1. DEFINICIÓN DE VARIABLES DE TEMA (LA BASE DE TODO)
+   ========================================================================== */
+
+/* 1.1 TEMA CLARO (POR DEFECTO) */
 :root {
-  --bs-primary: #D0B9A7;
-  --bs-primary-rgb: 198, 178, 154;
-  --bs-secondary: #d8c7b6;
-  --bs-secondary-rgb: 216, 199, 182;
-  --bs-body-bg: #f3e5d8;
-  --bs-body-color: #7a6a57; 
-  --bs-border-color: #e4d5c9;
-  --bs-light-rgb: 243, 229, 216;
-
-  /* Personalización de botones y enlaces */
-  .btn-primary {
-    --bs-btn-bg: var(--bs-primary);
-    --bs-btn-border-color: var(--bs-primary);
-    --bs-btn-hover-bg: #9b8c7e; 
-    --bs-btn-hover-border-color: #9b8c7e;
-    --bs-btn-color: #fff;
-    --bs-btn-hover-color: #fff;
-  }
-
-  .btn-outline-primary {
-    --bs-btn-color: var(--bs-primary);
-    --bs-btn-border-color: var(--bs-primary);
-    --bs-btn-hover-bg: var(--bs-primary);
-    --bs-btn-hover-border-color: var(--bs-primary);
-    --bs-btn-hover-color: #fff;
-  }
-
-  .btn-outline-secondary {
-    --bs-btn-color: var(--bs-secondary);
-    --bs-btn-border-color: var(--bs-secondary);
-    --bs-btn-hover-bg: var(--bs-secondary);
-    --bs-btn-hover-color: #fff;
-  }
+  --primary-color: #D0B9A7;
+  --secondary-color: #d8c7b6;
+  --accent-color: #9b8c7e;
   
-  .btn-link {
-    color: var(--bs-primary);
-    text-decoration: none;
-    font-weight: 500;
-  }
+  --body-bg: #f3e5d8;
+  --body-color: #7a6a57;
+  --surface-bg: #ffffff; /* Color para fondos de elementos como cards, navbar */
+  --border-color: #e4d5c9;
 
-  a:hover, .btn-link:hover {
-    color: #9b8c7e; 
-  }
+  --link-color: var(--primary-color);
+  --link-hover-color: var(--accent-color);
 
-  .highlight-box {
-    background-color: #c6b29a; 
-    color: #333; 
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center;
-  }
+  --btn-primary-bg: var(--primary-color);
+  --btn-primary-text: #ffffff;
+  --btn-primary-border: var(--primary-color);
+  --btn-primary-hover-bg: var(--accent-color);
 
-  .card {
-    background-color: #f3e5d8; 
-    color: var(--bs-body-color);
-    border: 1px solid #e4d5c9;
-  }
+  --card-bg: var(--surface-bg);
+  --card-header-bg: #f0e6dc;
+  --card-color: var(--body-color);
+  --card-border: var(--border-color);
 
-  .card-header {
-    background-color: #d8c7b6; 
-    color: var(--bs-body-color);
-  }
+  --pagination-bg: var(--primary-color);
+  --pagination-color: #ffffff;
+  --pagination-hover-bg: var(--accent-color);
+  --pagination-active-bg: var(--accent-color);
+
+  --form-control-bg: #ffffff;
+  --form-control-color: #495057;
+  --placeholder-color: #a09385;
 }
 
-/* 2. Paleta de colores para el tema oscuro */
-
+/* 1.2 TEMA OSCURO */
 html.dark {
   color-scheme: dark;
 
-  /* Paleta de colores */
-  --bs-primary: #c69c6c; /* Twine */
-  --bs-primary-rgb: 198, 156, 108;
-  --bs-secondary: #a27c53; /* Limed Oak */
-  --bs-secondary-rgb: 162, 124, 83;
-  --bs-body-bg: #4d2919; /* Brown Derby - Fondo general más oscuro */
-  --bs-body-color: #c69c6c; /* Twine - Color de texto principal */
-  --bs-border-color: #6d3d26; /* Pickled Bean */
-  --bs-tertiary-bg: #6d3d26; /* Pickled Bean - Fondo terciario */
+  --primary-color: #63b3ed;  /* Un azul claro y moderno como color principal */
+  --secondary-color: #4299e1; /* Un azul un poco más oscuro */
+  --accent-color: #4299e1;    /* Usaremos el secundario como acento también */
+  
+  --body-bg: #1a202c;         /* Fondo principal: un azul pizarra muy oscuro */
+  --body-color: #e2e8f0;      /* Texto principal: un gris muy claro */
+  --surface-bg: #2d3748;      /* Fondo para superficies: un gris azulado */
+  --border-color: #4a5568;    /* Color de borde sutil */
 
-  /* Botones primarios */
-  .btn-primary {
-    --bs-btn-color: #4d2919; /* Brown Derby - Color de texto del botón */
-    --bs-btn-bg: #c69c6c; /* Twine - Fondo del botón */
-    --bs-btn-border-color: #c69c6c; /* Twine - Borde del botón */
-    --bs-btn-hover-color: #4d2919; /* Brown Derby - Color de texto al pasar el ratón */
-    --bs-btn-hover-bg: #a27c53; /* Limed Oak - Fondo al pasar el ratón */
-    --bs-btn-hover-border-color: #a27c53; /* Limed Oak - Borde al pasar el ratón */
-  }
+  --link-color: var(--primary-color);
+  --link-hover-color: #90cdf4; /* Un azul más claro para el hover */
 
-  /* Enlaces */
-  a, .btn-link {
-    color: var(--bs-primary); /* Usa Twine */
-  }
+  --btn-primary-bg: var(--primary-color);
+  --btn-primary-text: #1a202c; /* Texto oscuro para contraste sobre el botón azul */
+  --btn-primary-border: var(--primary-color);
+  --btn-primary-hover-bg: var(--secondary-color);
 
-  a:hover, .btn-link:hover {
-    color: var(--bs-secondary); /* Usa Limed Oak */
-  }
+  --card-bg: var(--surface-bg);
+  --card-header-bg: #1a202c;
+  --card-color: var(--body-color);
+  --card-border: var(--border-color);
+  
+  --pagination-bg: var(--surface-bg);
+  --pagination-color: var(--primary-color);
+  --pagination-hover-bg: var(--secondary-color);
+  --pagination-active-bg: var(--primary-color);
 
-  /* Tarjetas */
-  .card {
-    background-color: #8f5a3d; /* Potters Clay - Fondo de la tarjeta */
-    color: #c69c6c;             /* Twine - Color de texto de la tarjeta */
-    border: 1px solid #6d3d26; /* Pickled Bean - Borde de la tarjeta */
-  }
-
-  .card-header {
-    background-color: #6d3d26; /* Pickled Bean - Fondo del encabezado de la tarjeta */
-    color: #c69c6c;             /* Twine - Color de texto del encabezado de la tarjeta */
-  }
-
-  /* Recuadro destacado (como el de bienvenida) */
-  .highlight-box {
-    background-color: #a27c53; /* Limed Oak - Fondo del recuadro */
-    color: #4d2919;             /* Brown Derby - Letras oscuras para contraste */
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center;
-  }
-
-  .highlight-box h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #4b3720; /* Twine */
-  }
-
-  .highlight-box p {
-    font-size: 1.2rem;
-    color: #4b3720; /* Twine */
-  }
+  --form-control-bg: #2d3748;
+  --form-control-color: var(--body-color);
+  --placeholder-color: #a0aec0; /* Un gris claro para los placeholders */
 }
 
-/* 3. Estilos generales */
+/* ==========================================================================
+   2. ESTILOS GLOBALES Y DE COMPONENTES (USAN LAS VARIABLES)
+   ========================================================================== */
+
+/* Estilos generales del cuerpo */
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--body-bg);
+  color: var(--body-color);
 }
-/* Aplica el footer */
+
+/* --- Botones --- */
+.btn-primary {
+  --bs-btn-bg: var(--btn-primary-bg);
+  --bs-btn-border-color: var(--btn-primary-border);
+  --bs-btn-color: var(--btn-primary-text);
+  --bs-btn-hover-bg: var(--btn-primary-hover-bg);
+  --bs-btn-hover-border-color: var(--btn-primary-hover-bg);
+  --bs-btn-hover-color: var(--btn-primary-text);
+  --bs-btn-active-bg: var(--btn-primary-hover-bg);
+  --bs-btn-active-border-color: var(--btn-primary-hover-bg);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-hover-bg: var(--primary-color);
+  --bs-btn-hover-border-color: var(--primary-color);
+  --bs-btn-hover-color: var(--btn-primary-text);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--secondary-color);
+  --bs-btn-border-color: var(--secondary-color);
+  --bs-btn-hover-bg: var(--secondary-color);
+  --bs-btn-hover-border-color: var(--secondary-color);
+  --bs-btn-hover-color: var(--btn-primary-text);
+}
+
+/* --- Links --- */
+a, .btn-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover, .btn-link:hover {
+  color: var(--link-hover-color);
+}
+
+/* --- Tarjetas (Cards) --- */
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-color);
+  border: 1px solid var(--card-border);
+}
+.card-header {
+  background-color: var(--card-header-bg);
+  color: var(--card-color);
+  border-bottom: 1px solid var(--card-border);
+}
+/* CORRECCIÓN: Se asegura que el texto dentro de las cards sea visible en modo oscuro */
+html.dark .card-body,
+html.dark .card-title,
+html.dark .card-text {
+    color: var(--card-color);
+}
+
+/* --- Recuadro destacado y Barra de Filtros --- */
+/* Esta clase ahora se aplica a la barra de filtros también */
+.highlight-box, .filter-bar {
+  background-color: var(--surface-bg);
+  color: var(--body-color);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* --- Campos de Formulario (Inputs, Selects) --- */
+.form-control {
+  background-color: var(--form-control-bg);
+  color: var(--form-control-color);
+  border-color: var(--border-color);
+}
+.form-control:focus {
+  background-color: var(--form-control-bg);
+  color: var(--form-control-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+}
+/* CORRECCIÓN: Se asegura que las etiquetas de los filtros sean visibles en modo oscuro */
+html.dark .form-label {
+    color: var(--body-color);
+}
+
+
+/* --- Barra de Navegación (Navbar) --- */
+/* NOTA: Se fuerza a que el navbar SIEMPRE use los colores del tema claro. */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  
+  /* Se definen colores específicos para los elementos del navbar */
+  --bs-navbar-color: #7a6a57;
+  --bs-navbar-hover-color: #9b8c7e;
+  --bs-navbar-brand-color: #7a6a57;
+  --bs-navbar-brand-hover-color: #9b8c7e;
+}
+/* Se asegura que los links dentro del navbar no sean afectados por el modo oscuro */
+html.dark .navbar .nav-link, 
+html.dark .navbar .navbar-brand {
+    color: var(--bs-navbar-color);
+}
+html.dark .navbar .nav-link:hover, 
+html.dark .navbar .navbar-brand:hover {
+    color: var(--bs-navbar-hover-color);
+}
+
+
+/* --- Pie de página (Footer) --- */
 footer {
-  background-color: #ffffff; 
+  background-color: var(--surface-bg);
+  color: gray;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+/* CORRECCIÓN: Se asegura que el texto y los links del footer tengan el color correcto en modo oscuro */
+html.dark footer {
+    color: var(--body-color);
+}
+html.dark footer a {
+    color: var(--body-color);
+    transition: color 0.2s ease-in-out;
+}
+html.dark footer a:hover {
+    color: var(--link-hover-color);
 }
 
-.container.text-muted {
-  color: #c69c6c !important; 
+
+/* --- Paginación --- */
+.pagination .page-item .page-link {
+  background-color: var(--pagination-bg);
+  color: var(--pagination-color);
+  border: none;
+  margin: 0 2px;
+}
+.pagination .page-item.active .page-link {
+  background-color: var(--pagination-active-bg);
+  /* En modo oscuro, el texto activo será oscuro para contrastar */
+  color: var(--btn-primary-text, #ffffff); 
+}
+.pagination .page-item .page-link:hover {
+  background-color: var(--pagination-hover-bg);
 }
 
-/* También para los íconos, en caso de que estén en una clase separada */
-.social-icons a {
-  color: #c69c6c !important; 
+/* --- Placeholders en filtros --- */
+::placeholder {
+  color: var(--placeholder-color) !important;
+  opacity: 1;
+}
+.form-control::placeholder {
+  color: var(--placeholder-color) !important;
+  opacity: 1;
 }

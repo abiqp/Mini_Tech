@@ -3,7 +3,7 @@
     <h1 class="h4 mb-0">
       {{ currentFilters.q ? 'Resultados para "' + currentFilters.q + '"' : 'Todos los productos' }}
     </h1>
-    <span *ngIf="!loading" class="text-muted small">{{ totalProducts }} productos</span>
+    <span *ngIf="!loading" class=" small">{{ totalProducts }} productos</span>
   </div>
 
   <app-filters [initialFilters]="currentFilters" (filterChange)="onFilterChange($event)"></app-filters>
